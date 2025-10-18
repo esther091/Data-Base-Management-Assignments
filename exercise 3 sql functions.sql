@@ -37,7 +37,8 @@ select price, round(price) from products
 select price, price-(0.15*price) "sale price after discount" from products
 
 --Write a query to display the day of the week (name) when each product was released.
-select name, release_date, extract(day from release_date) from products
+SELECT name, TO_CHAR(release_date, 'Day') AS day_of_week
+FROM products;
 
 -- Write a query to find all products released in the current month, regardless of year.
 select name, release_date,  extract(month from release_date) from products
@@ -71,6 +72,7 @@ SELECT
     MAX(price) AS maximum_price,
     COUNT(*) AS total_products
 FROM products;
+
 
 
 
